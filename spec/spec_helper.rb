@@ -4,6 +4,8 @@ require File.expand_path '../../yellowtail.rb', __FILE__
 require 'rspec'
 require 'rack/test'
 
+Dir[File.join(__dir__, '..', 'lib', '*.rb')].each { |file| require file }
+
 
 module RSpecMixin
   include Rack::Test::Methods

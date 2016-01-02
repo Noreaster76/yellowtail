@@ -1,0 +1,3 @@
+module AverageLength
+
+end
