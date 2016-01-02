@@ -8,7 +8,7 @@ describe 'Yellowtail main app' do
 
   it 'routes /words/avg_len to the AverageLength module' do
     expect(AverageLength).to receive(:calculate).with "My cat is gray. It doesn't have feathers."
-    post '/words/avg_len', "{'text':'My cat is gray. It doesn\'t have feathers.'}"
+    post '/words/avg_len', "{\"text\":\"My cat is gray. It doesn\'t have feathers.\"}"
   end
 end
 
