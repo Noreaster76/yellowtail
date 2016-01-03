@@ -17,8 +17,14 @@ describe WordTokenizer do
       end
       context 'and it is non-empty' do
         context 'and it contains just a single word' do
-          let(:input) { 'a' }
-          specify { expect(described_class.tokenize(input)).to eq [ 'a' ] }
+          context 'but the word contains a number' do
+            let(:input) { 'a2' }
+            specify { expect(described_class.tokenize(input)).to eq [ ] }
+          end
+          context 'and the word does not contain any numbers' do
+            let(:input) { 'a' }
+            specify { expect(described_class.tokenize(input)).to eq [ 'a' ] }
+          end
         end
         context 'and it contains multiple words' do
           let(:input) { " a\r\nfluffy\t bunny" }
