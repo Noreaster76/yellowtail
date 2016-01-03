@@ -4,7 +4,7 @@ module SentenceTokenizer
     if text.nil?
       []
     else
-      text.split(/[\.!]/).map(&:strip).reject(&:empty?)
+      text.split(/[\.!?]/).map(&:strip).reject(&:empty?)
     end
   end
 

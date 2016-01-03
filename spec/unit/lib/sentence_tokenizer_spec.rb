@@ -21,12 +21,13 @@ describe SentenceTokenizer do
           specify { expect(described_class.tokenize(input)).to eq [ 'I see the moon' ] }
         end
         context 'and it contains multiple sentences' do
-          let(:input) { " a\r\nfluffy\t bunny ran to 7-Eleven. i saw it myself. i swear! i kid you not." }
+          let(:input) { " henry? a\r\nfluffy\t bunny ran to 7-Eleven. i saw it myself. i swear! i kid you not." }
           specify { expect(described_class.tokenize(input)).to eq [
+            'henry',
             "a\r\nfluffy\t bunny ran to 7-Eleven",
-            "i saw it myself",
-            "i swear",
-            "i kid you not"
+            'i saw it myself',
+            'i swear',
+            'i kid you not'
           ] }
         end
       end
