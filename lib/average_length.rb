@@ -1,4 +1,4 @@
-module AverageWordLength
+module AverageLength
 
   def self.calculate(text)
     result = 0

@@ -1,6 +1,6 @@
 require_relative '../../../spec/spec_helper.rb'
 
-describe AverageWordLength do
+describe AverageLength do
 
   describe '.calculate' do
 
