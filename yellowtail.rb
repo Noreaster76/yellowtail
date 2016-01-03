@@ -7,5 +7,6 @@ end
 
 post '/words/avg_len' do
   body = JSON.parse(request.body.string)['text']
-  AverageLength.calculate body
+  result = AverageLength.calculate(RemoveIrrelevantCharactersFilter.filter(WordTokenizer.tokenize(body)))
+  result.to_s
 end

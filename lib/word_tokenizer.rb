@@ -1,7 +1,14 @@
 module WordTokenizer
 
   def self.tokenize(text)
-    text.nil? ? [] : text.split(' ').reject(&:empty?).reject { |word| word.match(/[\d]/) }
+    if text.nil?
+      []
+    else
+      text.gsub(/[^'\w\s]/,'').
+        split(' ').
+        reject(&:empty?).
+        reject { |word| word.match(/[\d]/) }
+    end
   end
 
 end
