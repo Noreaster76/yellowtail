@@ -1,14 +1,7 @@
 module AverageLength
 
-  def self.calculate(text)
-    result = 0
-    unless text.nil?
-      all_words = text.split(' ')
-      unless all_words.empty?
-        result = all_words.map(&:length).inject(:+) / Float(all_words.count)
-      end
-    end
-    result
+  def self.calculate(input)
+    input.empty? ? 0 : input.map(&:length).inject(:+) / Float(input.count)
   end
 
 end

@@ -4,27 +4,22 @@ describe AverageLength do
 
   describe '.calculate' do
 
-    context 'when the input is nil' do
-      let(:input) { nil }
+    context 'when the input contains no elements' do
+      let(:input) { [] }
       specify { expect(described_class.calculate(input)).to eq 0 }
     end
 
-    context 'when the input is non-nil' do
+    context 'when the input contains elements' do
 
-      context 'but it is otherwise empty' do
-        let(:input) { '' }
-        specify { expect(described_class.calculate(input)).to eq 0 }
+      context 'and it contains just a single element which responds to :length' do
+        let(:input) { [ 'a' ] }
+        specify { expect(described_class.calculate(input)).to eq 1 }
       end
-      context 'and it is non-empty' do
-        context 'and it contains just a single word' do
-          let(:input) { 'a' }
-          specify { expect(described_class.calculate(input)).to eq 1 }
-        end
-        context 'and it contains multiple words' do
-          let(:input) { 'a fluffy bunny' }
-          specify { expect(described_class.calculate(input)).to eq 4 }
-        end
+      context 'and it contains multiple elements, each of which respond to :length' do
+        let(:input) { [ 'a', 'fluffy', 'bunny' ] }
+        specify { expect(described_class.calculate(input)).to eq 4 }
       end
+
     end
 
   end
