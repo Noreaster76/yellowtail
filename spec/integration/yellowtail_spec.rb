@@ -12,7 +12,7 @@ describe 'Yellowtail main app' do
   describe '/sentences/avg_len' do
     it 'returns the average sentence length' do
       post '/sentences/avg_len', "{\"text\":\"My cat's fluffy. He's a lazy potato sack.\"}"
-      expect(last_response.body).to eq '4'
+      expect(last_response.body).to eq '4.0'
     end
   end
 
