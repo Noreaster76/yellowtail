@@ -1,14 +1,17 @@
 require 'sinatra'
 require 'json'
 
+before do
+  request.body.rewind
+  @request_json = JSON.parse(request.body.read)['text']
+end
+
 post '/words/avg_len' do
-  body = JSON.parse(request.body.string)['text']
-  result = AverageLength.calculate(RemoveIrrelevantCharactersFilter.filter(WordTokenizer.tokenize(body)))
+  result = AverageLength.calculate(RemoveIrrelevantCharactersFilter.filter(WordTokenizer.tokenize(@request_json)))
   result.to_s
 end
 
 post '/sentences/avg_len' do
-  body = JSON.parse(request.body.string)['text']
-  result = AverageLength.calculate(SentenceTokenizer.tokenize(body))
+  result = AverageLength.calculate(SentenceTokenizer.tokenize(@request_json))
   result.to_s
 end
