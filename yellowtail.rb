@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'json'
 
+Dir[File.join(__dir__, 'lib', '*.rb')].each { |file| require file }
+
 before do
   request.body.rewind
   @request_json = JSON.parse(request.body.read)['text']
