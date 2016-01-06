@@ -7,7 +7,7 @@ before do
 end
 
 post '/words/avg_len' do
-  result = AverageLength.calculate(RemoveNonLetterCharactersFilter.filter(WordTokenizer.tokenize(@request_json)))
+  result = AverageLength.calculate(LettersOnlyFilter.filter(WordTokenizer.tokenize(@request_json)))
   result.to_s
 end
 
